@@ -7,7 +7,7 @@ function App() {
   const [status, setStatus] = useState('Loading tokens...')
 
   useEffect(() => {
-    fetch('./tokenlist.json')
+    fetch('/tokenlist.json')
       .then(r => r.json())
       .then(data => {
         setTokens(data.tokens || [])
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <h1>🛡️ VultiGuard</h1>
-      <p>THORChain Native L1 Swap Wallet</p>
+      <p>THORChain Native L1 Swap Wallet PP </p>
       <div className="swap-form">
         <select value={from} onChange={e => setFrom(e.target.value)}>
           {tokens.map(t => (
