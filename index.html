@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html><head><title>VultiGuard</title></head><body>
+<h1>THORChain Swap Wallet</h1>
+<input id="from" placeholder="From Token"><input id="to" placeholder="To Token">
+<button onclick="swap()">Swap</button>
+<script src="https://thorchain.net/api/latest.json"></script> <!-- Placeholder -->
+<script>function swap(){fetch('/api/swap',{method:'POST',body:JSON.stringify({from:document.getElementById('from').value,to:document.getElementById('to').value})}).then(r=>r.json()).then(console.log);}</script>
+</body></html>
