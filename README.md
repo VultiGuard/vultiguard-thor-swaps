@@ -3,7 +3,7 @@
 **Vultisig fork optimized for seamless native L1 swaps via THORChain.org**
 
 - MPC security (no seeds/hardware)
-- 30+ chains: BTC→RUNE, ATOM→KUJI, ETH→USDC
+- 30+ chains: BTC→RUNE→ETH, AVAX→BHC, ETH→USDC, RUNE→RUJI
 - One-click DeFi, stake $RUNE
 
 ## Quickstart

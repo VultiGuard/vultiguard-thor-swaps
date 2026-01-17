@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VultiGuard THORChain Wallet</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>🛡️ VultiGuard THORChain Swap</h1>
+<p>Premier native L1 swap wallet</p>
+
+<label>From:</label>
+<select id="from"><option>Loading tokens...</option></select>
+<label>To:</label>
+<select id="to"><option>Loading tokens...</option></select>
+<button onclick="performSwap()">Swap via THORChain</button>
+
+<div id="tokens"></div>
+<div id="status">Ready</div>
+
+<script>
+fetch('/tokenlist.json').then(r=>r.json()).then(tokens=>{
+  const populate = (sel, opts) => { sel.innerHTML=''; opts.forEach(t=> {const opt=document.createElement('option'); opt.value=t.symbol; opt.text=t.name+' ('+t.symbol+')'; sel.add(opt);}); };
+  populate(document.getElementById('from'), tokens.tokens);
+  populate(document.getElementById('to'), tokens.tokens.slice(1)); // Exclude first for demo
+  document.getElementById('tokens').innerHTML = tokens.tokens.map(t=>`<div class="token" onclick="document.getElementById('from').value='${t.symbol}'">${t.name}</div>`).join('');
+}).catch(e=>document.getElementById('status').innerHTML='Error loading tokens: '+e);
+
+async function performSwap() {
+  const from = document.getElementById('from').value;
+  const to = document.getElementById('to').value;
+  document.getElementById('status').innerHTML='Swapping '+from+' → '+to+'...';
+  // TODO: Replace with backend API e.g. fetch('https://your-backend.onrender.com/swap',{method:'POST',body:JSON.stringify({from,to})})
+  setTimeout(()=>document.getElementById('status').innerHTML='Swap initiated! Tx: 0xDemoHash (Connect wallet next)', 2000);
+}
+</script>
+</body>
+</html>
