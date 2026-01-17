@@ -7,7 +7,7 @@ function App() {
   const [status, setStatus] = useState('Loading tokens...')
 
   useEffect(() => {
-    fetch('/tokenlist.json')
+    fetch('./tokenlist.json')
       .then(r => r.json())
       .then(data => {
         setTokens(data.tokens || [])
