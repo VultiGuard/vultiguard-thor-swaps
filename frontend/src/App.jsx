@@ -7,7 +7,7 @@ function App() {
   const [status, setStatus] = useState('Loading tokens...')
 
   useEffect(() => {
-    fetch('/tokenlist.json')
+    fetch('https://raw.githubusercontent.com/VultiGuard/vultiguard-thor-swaps/main/tokenlist.json')
       .then(r => r.json())
       .then(data => {
         setTokens(data.tokens || [])
